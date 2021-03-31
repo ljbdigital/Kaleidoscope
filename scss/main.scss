@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Sprat";
+  src: url(../fonts/sprat.woff2);
+}
+body {
+  font-family: "Sprat";
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #000;
+  color: rgb(250, 250, 250);
+}
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 9rem;
+  z-index: 100;
+  font-weight: 500;
+}
+section div {
+  width: 5em;
+}
+@keyframes inhale {
+  0% {
+      font-variation-settings: "wght" 10, "wdth" 120;
+      opacity: 0.75;
+  }
+  100% {
+      font-variation-settings: "wght" 100, "wdth" 120;
+      opacity: 1;
+  }
+}
+@keyframes exhale {
+  0% {
+      font-variation-settings: "wght" 100, "wdth" 120;
+      opacity: 1;
+  }
+  100% {
+      font-variation-settings: "wght" 10, "wdth" 120;
+      opacity: 0.75;
+  }
+}
+@keyframes throb {
+  0% {
+      transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+canvas {
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+
+  width: 100%;
+  height: 700px;
+
+  max-height: 90vmin;
+  max-width: 90vmin;
+
+  animation: throb 5s infinite alternate;
+}
+section div.left {
+  animation: exhale 3s infinite alternate;
+}
+section div.exhale {
+  animation: inhale 3s infinite alternate;
+}
+.edit {
+  position:fixed; 
+  right: 0; top: 0;
+  display: flex; flex-direction: column;
+  width: 200px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.25);
+  font-family: sans-serif;
+  display: flex; justify-content: center; align-items: center;
+}
